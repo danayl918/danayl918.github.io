@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daniyal Aslam | AI & Software Development</title>
+
+    <meta name="description" content="Daniyal Aslam — student passionate about Artificial Intelligence, Software Development, Machine Learning and Computer Science.">
+    <meta name="author" content="Daniyal Aslam">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-950: #020817;
+            --navy-900: #06122b;
+            --navy-800: #0a1b3d;
+            --navy-700: #102957;
+            --navy-600: #17376f;
+            --navy-500: #214b91;
+            --navy-text: #dbe8ff;
+            --navy-muted: #8fa8d1;
+            --navy-border: #17366c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 15% 10%, #102957 0%, transparent 30%),
+                radial-gradient(circle at 85% 35%, #0a1b3d 0%, transparent 30%),
+                var(--navy-950);
+            color: var(--navy-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(2, 8, 23, 0.82);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--navy-border);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #214b91;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--navy-muted);
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #dbe8ff;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 120px 8%;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #8fa8d1;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .section-description {
+            max-width: 750px;
+            color: var(--navy-muted);
+            font-size: 18px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 150px;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .hero h1 {
+            font-size: clamp(58px, 10vw, 125px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .hero h1 span {
+            color: #214b91;
+        }
+
+        .hero-description {
+            max-width: 720px;
+            font-size: 20px;
+            color: var(--navy-muted);
+            margin-bottom: 38px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #17376f;
+            border: 1px solid #214b91;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #214b91;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--navy-border);
+            color: var(--navy-text);
+            background: rgba(10, 27, 61, 0.45);
+        }
+
+        .btn-secondary:hover {
+            background: #0a1b3d;
+            transform: translateY(-3px);
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .about-number {
+            font-size: 100px;
+            line-height: 1;
+            font-weight: 800;
+            color: #0a1b3d;
+            -webkit-text-stroke: 1px #17376f;
+        }
+
+        .about-text p {
+            color: var(--navy-muted);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: linear-gradient(
+                145deg,
+                rgba(16, 41, 87, 0.55),
+                rgba(6, 18, 43, 0.7)
+            );
+            border: 1px solid var(--navy-border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #214b91;
+            box-shadow: 0 18px 50px rgba(2, 8, 23, 0.5);
+        }
+
+        .card-number {
+            font-size: 13px;
+            color: #8fa8d1;
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: var(--navy-muted);
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .skill {
+            padding: 11px 17px;
+            background: #06122b;
+            border: 1px solid var(--navy-border);
+            border-radius: 50px;
+            color: #b9cbea;
+            font-size: 14px;
+            transition: 0.3s ease;
+        }
+
+        .skill:hover {
+            background: #0a1b3d;
+            border-color: #214b91;
+            transform: translateY(-2px);
+        }
+
+        /* GOALS */
+
+        .goal-box {
+            max-width: 900px;
+            padding: 45px;
+            margin-top: 45px;
+            border-left: 3px solid #214b91;
+            background: linear-gradient(
+                90deg,
+                rgba(16, 41, 87, 0.35),
+                transparent
+            );
+        }
+
+        .goal-box p {
+            color: var(--navy-muted);
+            font-size: 20px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .email {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 25px;
+            border: 1px solid var(--navy-border);
+            border-radius: 8px;
+            background: #06122b;
+            color: #dbe8ff;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .email:hover {
+            background: #0a1b3d;
+            border-color: #214b91;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--navy-border);
+            padding: 30px 8%;
+            text-align: center;
+            color: #6f86ad;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-number {
+                font-size: 70px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 90px 6%;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .section-title {
+                font-size: 38px;
+            }
+
+            .goal-box {
+                padding: 28px;
+            }
+
+            .goal-box p {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#home" class="logo">D<span>A</span>.</a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#passion">Passion</a></li>
+            <li><a href="#goals">Goals</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+
+            <div class="eyebrow">
+                Artificial Intelligence • Software Development
+            </div>
+
+            <h1>
+                Daniyal<br>
+                <span>Aslam.</span>
+            </h1>
+
+            <p class="hero-description">
+                A student exploring Artificial Intelligence, Machine Learning,
+                Software Development and Computer Science — with a vision to
+                build meaningful technology for the future.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">
+                    Discover My Journey
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Get In Touch
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+                    <div class="eyebrow">01 — About</div>
+                    <div class="about-number">01</div>
+                </div>
+
+                <div class="about-text">
+                    <h2 class="section-title">
+                        Building knowledge.<br>
+                        Exploring possibilities.
+                    </h2>
+
+                    <p>
+                        I am Daniyal Aslam, a student with a strong interest
+                        in Artificial Intelligence and Software Development.
+                    </p>
+
+                    <p>
+                        I enjoy exploring how modern technology works,
+                        especially the systems and ideas behind Artificial
+                        Intelligence and Machine Learning.
+                    </p>
+
+                    <p>
+                        My goal is to continuously learn Computer Science,
+                        improve my development skills and eventually turn
+                        ideas into real technology.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+        <div class="container">
+
+            <div class="eyebrow">02 — Education</div>
+
+            <h2 class="section-title">
+                Academic Journey
+            </h2>
+
+            <p class="section-description">
+                My academic foundation and future aspirations.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-number">2022 — 2024</div>
+                    <h3>Matriculation</h3>
+                    <p>A+ Grade</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">2024 — 2026</div>
+                    <h3>FSc</h3>
+                    <p>A+ Grade</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">Future Aspiration</div>
+                    <h3>MIT — USA</h3>
+                    <p>
+                        Massachusetts Institute of Technology
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PASSION -->
+
+    <section id="passion">
+        <div class="container">
+
+            <div class="eyebrow">03 — Passion</div>
+
+            <h2 class="section-title">
+                Curious about<br>
+                what happens underneath.
+            </h2>
+
+            <p class="section-description">
+                My primary interests are Artificial Intelligence and
+                Software Development. I want to understand how intelligent
+                systems work behind the scenes and how Machine Learning
+                contributes to modern AI.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- GOALS -->
+
+    <section id="goals">
+        <div class="container">
+
+            <div class="eyebrow">04 — Vision</div>
+
+            <h2 class="section-title">
+                The Future I Want<br>
+                To Build
+            </h2>
+
+            <div class="goal-box">
+                <p>
+                    My long-term goal is to build an AI-focused software
+                    company and create technology capable of solving
+                    meaningful real-world problems. I also aspire to develop
+                    my own AI-powered platform or tool in the future.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+        <div class="container">
+
+            <div class="eyebrow">05 — Skills</div>
+
+            <h2 class="section-title">
+                Areas I'm Exploring
+            </h2>
+
+            <div class="skills">
+
+                <div class="skill">Artificial Intelligence</div>
+                <div class="skill">Machine Learning</div>
+                <div class="skill">Agentic AI</div>
+                <div class="skill">Software Engineering</div>
+                <div class="skill">Software Development</div>
+                <div class="skill">Programming & Coding</div>
+                <div class="skill">Web Development</div>
+                <div class="skill">Computer Science</div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+
+    <section id="achievements">
+        <div class="container">
+
+            <div class="eyebrow">06 — Achievements</div>
+
+            <h2 class="section-title">
+                A Journey Still<br>
+                In Progress.
+            </h2>
+
+            <p class="section-description">
+                My academic achievements and scholarship certifications
+                are part of my ongoing educational journey. More milestones
+                will be added as I continue to learn, build and grow.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+        <div class="container contact">
+
+            <div class="contact-content">
+
+                <div class="eyebrow">07 — Contact</div>
+
+                <h2 class="section-title">
+                    Let's Connect.
+                </h2>
+
+                <p class="section-description" style="margin: auto;">
+                    For professional or technology-related conversations,
+                    feel free to reach out.
+                </p>
+
+                <a
+                    href="mailto:daniyalaslam453@gmail.com"
+                    class="email">
+                    daniyalaslam453@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Daniyal Aslam. All rights reserved.
+    </footer>
+
+</body>
+</html>

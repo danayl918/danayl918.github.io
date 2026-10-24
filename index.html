@@ -1,45 +1,45 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#171717">
-  <meta name="description" content="Daniyal Aslam — student exploring Artificial Intelligence, Machine Learning, Computer Science, and Software Development.">
-  <meta property="og:title" content="Daniyal Aslam — AI & Software Development">
-  <meta property="og:description" content="A curious mind exploring AI, Machine Learning, and software that can make a meaningful difference.">
-  <title>Daniyal Aslam — AI & Software Development</title>
+  <meta name="description" content="Daniyal Aslam — Student exploring Artificial Intelligence, Machine Learning and Software Development.">
+  <title>Daniyal Aslam | Personal Portfolio</title>
 
   <style>
     :root {
-      color-scheme: dark;
       --bg: #171717;
-      --surface: #202020;
-      --surface-2: #252525;
-      --text: #f4f4f4;
-      --muted: #a7a7a7;
-      --line: #353535;
+      --card: #202020;
+      --text: #f5f5f5;
+      --muted: #b0b0b0;
       --accent: #a3d9b1;
-      --accent-ink: #142019;
-      --max: 1080px;
-      --radius: 18px;
+      --border: #353535;
+      --width: 1080px;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 88px;
+      scroll-padding-top: 85px;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
-      margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-wrap: break-word;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -48,46 +48,41 @@
       text-decoration: none;
     }
 
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 4px;
+    button {
+      font: inherit;
     }
 
-    ::selection {
-      background: var(--accent);
-      color: var(--accent-ink);
-    }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 40px));
+    .container {
+      width: min(var(--width), calc(100% - 40px));
       margin-inline: auto;
     }
 
-    .topbar {
+    /* Navigation */
+
+    header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(23, 23, 23, .88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, .07);
+      z-index: 100;
+      background: rgba(23, 23, 23, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
     }
 
-    .nav {
-      min-height: 72px;
+    .navbar {
+      min-height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
 
-    .brand {
-      font-size: 1.25rem;
-      font-weight: 760;
-      letter-spacing: -.07em;
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
     }
 
-    .brand span {
+    .logo span {
       color: var(--accent);
     }
 
@@ -95,449 +90,380 @@
       display: flex;
       align-items: center;
       gap: 23px;
-      color: #c5c5c5;
-      font-size: .88rem;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: #d0d0d0;
+      transition: color .2s;
     }
 
     .nav-links a:hover {
       color: var(--accent);
     }
 
-    .nav-cta {
-      padding: 9px 15px;
-      border: 1px solid #4a4a4a;
-      border-radius: 999px;
-      color: var(--text) !important;
-    }
-
-    .nav-cta:hover {
-      border-color: var(--accent);
-    }
-
-    .menu-toggle {
+    .menu-button {
       display: none;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: var(--surface);
       color: var(--text);
-      padding: 9px 12px;
-      font: inherit;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 13px;
+      cursor: pointer;
     }
+
+    /* Hero */
 
     .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 112px 0 92px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 460px;
-      height: 460px;
-      border-radius: 50%;
-      right: -140px;
-      top: -210px;
-      pointer-events: none;
-      background: radial-gradient(
-        circle,
-        rgba(163, 217, 177, .12),
-        rgba(163, 217, 177, 0) 68%
-      );
+      padding: 100px 0 80px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse at 90% 0%,
+        rgba(163, 217, 177, .09), transparent 45%);
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
       color: var(--accent);
-      font-size: .75rem;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: .14em;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: var(--accent);
-    }
-
     h1 {
-      margin: 22px 0 18px;
-      max-width: 850px;
-      font-size: clamp(3.2rem, 8vw, 6.6rem);
-      line-height: .99;
-      letter-spacing: -.075em;
-      font-weight: 720;
+      font-size: clamp(46px, 8vw, 82px);
+      line-height: 1.06;
+      letter-spacing: -4px;
+      font-weight: 750;
+      margin: 22px 0;
     }
 
     h1 span {
-      color: #a9a9a9;
+      color: #aaa;
     }
 
-    .hero-copy {
-      max-width: 670px;
-      color: #bdbdbd;
-      font-size: clamp(1.05rem, 2vw, 1.24rem);
+    .hero-description {
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 17px;
       line-height: 1.8;
     }
 
-    .actions {
+    .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 30px;
+      margin-top: 27px;
     }
 
-    .btn {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
+      padding: 11px 18px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      font-size: 14px;
       font-weight: 650;
-      font-size: .92rem;
-      transition: transform .2s ease, border-color .2s ease,
-        background .2s ease;
+      transition: .2s;
     }
 
-    .btn:hover {
+    .button:hover {
       transform: translateY(-2px);
-      border-color: #777;
     }
 
-    .btn-primary {
+    .button-primary {
       background: var(--accent);
-      color: var(--accent-ink);
+      color: #142019;
       border-color: var(--accent);
     }
 
-    .btn-primary:hover {
-      background: #b9e5c4;
-      border-color: #b9e5c4;
+    .button-secondary {
+      background: transparent;
     }
 
-    .hero-meta {
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 44px;
+      gap: 9px;
+      margin-top: 32px;
     }
 
-    .pill {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: #c9c9c9;
-      padding: 7px 12px;
-      font-size: .82rem;
-      background: rgba(255, 255, 255, .02);
+    .tag {
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 5px 11px;
+      color: #ccc;
+      font-size: 12px;
     }
+
+    /* Sections */
 
     section {
-      padding: 82px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 34px;
+      padding: 70px 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .section-label {
       color: var(--accent);
-      font-size: .75rem;
-      letter-spacing: .15em;
+      font-size: 12px;
       font-weight: 700;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
     h2 {
-      margin: 8px 0 0;
-      font-size: clamp(2rem, 4.3vw, 3.5rem);
-      line-height: 1.1;
-      letter-spacing: -.06em;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      margin: 10px 0 15px;
     }
 
-    .section-intro {
-      max-width: 430px;
+    .section-description {
       color: var(--muted);
-      margin: 0;
+      font-size: 15px;
+      max-width: 560px;
+      margin-bottom: 28px;
     }
 
-    .about-grid {
+    .grid-two {
       display: grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 22px;
+      gap: 20px;
     }
 
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
+    .card {
+      min-width: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
     }
 
-    .panel p {
-      color: #c2c2c2;
-      margin: 0 0 15px;
+    .card p {
+      color: #c5c5c5;
+      font-size: 15px;
+      margin-bottom: 14px;
     }
 
-    .panel p:last-child {
+    .card p:last-child {
       margin-bottom: 0;
     }
 
     .principle {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--line);
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .principle:last-child {
       border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .number {
-      color: var(--accent);
-      font-size: .8rem;
-      letter-spacing: .08em;
-      padding-top: 3px;
     }
 
     .principle strong {
       display: block;
+      font-size: 15px;
       margin-bottom: 3px;
     }
 
-    .principle span:last-child {
-      color: var(--muted);
-      font-size: .91rem;
-    }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .timeline-card {
-      position: relative;
-      min-height: 200px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-
-    .timeline-date {
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .07em;
-    }
-
-    .timeline-card h3 {
-      margin: 20px 0 6px;
-      font-size: 1.2rem;
-      letter-spacing: -.03em;
-    }
-
-    .timeline-card p {
+    .principle p {
+      font-size: 13px;
       margin: 0;
       color: var(--muted);
-      font-size: .92rem;
     }
 
-    .note {
-      color: #858585;
-      font-size: .82rem;
-      margin-top: 15px;
-    }
+    /* Education */
 
-    .interest-grid {
+    .education-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .education-card {
+      min-width: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 21px;
+    }
+
+    .date {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 16px 0 8px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .small-note {
+      color: #898989;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+    /* Interests and skills */
+
+    .grid-four {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
     }
 
-    .interest {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 14px;
+    .interest-card {
+      min-width: 0;
       padding: 19px;
-      min-height: 118px;
-      transition: transform .2s ease, border-color .2s ease;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color .2s, transform .2s;
     }
 
-    .interest:hover {
+    .interest-card:hover {
+      border-color: #66816c;
       transform: translateY(-3px);
-      border-color: #5c7763;
     }
 
-    .interest .symbol {
+    .symbol {
       color: var(--accent);
-      font-size: 1.25rem;
-      margin-bottom: 12px;
+      font-size: 21px;
+      margin-bottom: 10px;
     }
 
-    .interest strong {
+    .interest-card strong {
       display: block;
-      font-size: .96rem;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
-    .interest small {
+    .interest-card small {
+      display: block;
       color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
     }
 
-    .vision {
+    /* Vision */
+
+    .vision-grid {
       display: grid;
       grid-template-columns: .7fr 1.3fr;
-      gap: 26px;
-      align-items: start;
+      gap: 22px;
+      align-items: stretch;
     }
 
-    .vision-mark {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .vision-logo {
       min-height: 210px;
-      background: linear-gradient(140deg, #252c27, #202020 60%);
       display: grid;
       place-items: center;
+      background: linear-gradient(135deg, #28342b, #202020);
+      border: 1px solid var(--border);
+      border-radius: 16px;
     }
 
-    .vision-mark span {
-      font-size: 4rem;
+    .vision-logo span {
       color: var(--accent);
-      font-weight: 750;
-      letter-spacing: -.1em;
+      font-size: 55px;
+      font-weight: 800;
+      letter-spacing: -4px;
     }
 
     .vision-copy p {
-      margin: 0 0 15px;
-      color: #c2c2c2;
+      color: #c5c5c5;
+      font-size: 15px;
+      margin-bottom: 15px;
     }
 
-    .milestone {
-      border-left: 2px solid #526c59;
-      padding: 2px 0 2px 18px;
+    .goal {
+      border-left: 2px solid var(--accent);
+      padding-left: 15px;
       margin-top: 22px;
       color: var(--muted);
+      font-size: 14px;
     }
 
-    .milestone strong {
-      color: var(--text);
+    .goal strong {
       display: block;
+      color: var(--text);
       margin-bottom: 4px;
     }
 
-    .contact {
-      padding: 88px 0 72px;
-    }
+    /* Contact */
 
     .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: clamp(28px, 6vw, 58px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .contact-box h2 {
-      max-width: 590px;
+      padding: 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
     }
 
     .contact-box p {
+      max-width: 540px;
       color: var(--muted);
-      max-width: 550px;
+      font-size: 15px;
+      margin: 12px 0 20px;
     }
 
     .email {
       color: var(--accent);
+      font-size: 15px;
       font-weight: 650;
       overflow-wrap: anywhere;
     }
 
     footer {
-      padding: 24px 0 34px;
+      padding: 24px 0;
       color: #888;
-      font-size: .83rem;
+      font-size: 12px;
     }
 
-    .footer-inner {
+    .footer-content {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 16px;
+      gap: 15px;
     }
 
     .back-top {
-      color: #c6c6c6;
+      color: #ccc;
     }
 
-    .reveal {
-      animation: enter .7s both;
-    }
+    /* Responsive layout */
 
-    @keyframes enter {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-    }
-
-    @media (max-width: 780px) {
-      .wrap {
-        width: min(var(--max), calc(100% - 32px));
+    @media (max-width: 760px) {
+      .container {
+        width: calc(100% - 36px);
       }
 
-      .nav {
-        min-height: 64px;
+      .navbar {
+        min-height: 62px;
       }
 
-      .menu-toggle {
-        display: inline-flex;
+      .menu-button {
+        display: block;
       }
 
       .nav-links {
         display: none;
         position: absolute;
-        left: 16px;
-        right: 16px;
-        top: 58px;
-        padding: 14px;
+        top: 61px;
+        left: 18px;
+        right: 18px;
+        padding: 10px;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
         background: #202020;
-        border: 1px solid var(--line);
-        border-radius: 14px;
+        border: 1px solid var(--border);
+        border-radius: 13px;
       }
 
       .nav-links.open {
@@ -545,82 +471,96 @@
       }
 
       .nav-links a {
-        padding: 11px 10px;
-      }
-
-      .nav-cta {
-        text-align: center;
-        margin-top: 5px;
+        padding: 10px;
+        font-size: 14px;
       }
 
       .hero {
-        padding: 84px 0 68px;
+        padding: 70px 0 58px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 12vw, 65px);
+        letter-spacing: -2.5px;
+      }
+
+      .hero-description {
+        font-size: 16px;
       }
 
       section {
-        padding: 64px 0;
+        padding: 55px 0;
       }
 
-      .section-head {
-        display: block;
-      }
-
-      .section-intro {
-        margin-top: 15px;
-      }
-
-      .about-grid,
-      .vision {
+      .grid-two,
+      .vision-grid {
         grid-template-columns: 1fr;
       }
 
-      .timeline {
+      .education-grid {
         grid-template-columns: 1fr;
       }
 
-      .timeline-card {
-        min-height: auto;
+      .education-card {
+        padding: 20px;
       }
 
-      .interest-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .grid-four {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .interest-card {
+        padding: 15px;
       }
 
       .contact-box {
-        align-items: flex-start;
-        flex-direction: column;
+        padding: 23px;
       }
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 380px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
       h1 {
-        font-size: clamp(3rem, 17vw, 4rem);
+        font-size: 42px;
       }
 
-      .interest {
-        padding: 15px;
-        min-height: 110px;
+      h2 {
+        font-size: 27px;
       }
 
-      .footer-inner {
-        align-items: flex-start;
+      .grid-four {
+        gap: 9px;
+      }
+
+      .interest-card {
+        padding: 12px;
+      }
+
+      .footer-content {
         flex-direction: column;
-      }
-
-      .panel {
-        padding: 22px;
       }
     }
   </style>
 </head>
 
 <body id="top">
-  <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Daniyal Aslam home">DA<span>.</span></a>
+
+  <header>
+    <div class="container navbar">
+      <a href="#top" class="logo" aria-label="Daniyal Aslam home">
+        DA<span>.</span>
+      </a>
 
       <button
-        class="menu-toggle"
+        class="menu-button"
+        id="menu-button"
         type="button"
         aria-expanded="false"
         aria-controls="nav-links"
@@ -634,224 +574,199 @@
         <a href="#interests">Interests</a>
         <a href="#vision">Vision</a>
         <a href="#skills">Skills</a>
-        <a class="nav-cta" href="#contact">Contact ↗</a>
+        <a href="#contact">Contact ↗</a>
       </nav>
     </div>
   </header>
 
   <main>
+
     <section class="hero">
-      <div class="wrap reveal">
-        <div class="eyebrow">Artificial Intelligence · Software Development</div>
+      <div class="container">
+        <div class="eyebrow">AI · Computer Science · Software</div>
 
         <h1>Daniyal<br><span>Aslam.</span></h1>
 
-        <p class="hero-copy">
-          A student exploring Artificial Intelligence, Machine Learning and
-          Software Development — driven by curiosity and a vision to build
-          meaningful technology for the future.
+        <p class="hero-description">
+          A student exploring Artificial Intelligence, Machine Learning,
+          and Software Development. I am passionate about learning how
+          technology works and how it can be used to solve real-world problems.
         </p>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="#about">
-            Explore my journey <span aria-hidden="true">↘</span>
+        <div class="buttons">
+          <a href="#about" class="button button-primary">
+            Explore my journey ↓
           </a>
 
-          <a class="btn" href="#contact">
-            Get in touch <span aria-hidden="true">↗</span>
+          <a href="#contact" class="button button-secondary">
+            Get in touch ↗
           </a>
         </div>
 
-        <div class="hero-meta" aria-label="Areas of interest">
-          <span class="pill">AI & Machine Learning</span>
-          <span class="pill">Software Engineering</span>
-          <span class="pill">Computer Science</span>
+        <div class="tags">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Software Development</span>
         </div>
       </div>
     </section>
 
     <section id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">01 — About</div>
-            <h2>Building knowledge.<br>Exploring possibilities.</h2>
+      <div class="container">
+        <div class="section-label">01 — ABOUT ME</div>
+        <h2>A curious mind. A long-term vision.</h2>
+
+        <p class="section-description">
+          Learning today, building for tomorrow.
+        </p>
+
+        <div class="grid-two">
+          <div class="card">
+            <p>
+              I am Daniyal Aslam, a student with a strong interest in
+              Artificial Intelligence, Machine Learning, and Software Development.
+            </p>
+
+            <p>
+              I enjoy exploring how modern technology works, especially
+              the systems and ideas behind intelligent machines and
+              software applications.
+            </p>
+
+            <p>
+              My goal is to keep learning Computer Science, strengthen
+              my technical foundation, and gradually turn ideas into
+              useful technology.
+            </p>
           </div>
 
-          <p class="section-intro">
-            A learner's journey shaped by curiosity, consistency and the
-            desire to understand how technology works.
-          </p>
-        </div>
-
-        <div class="about-grid">
-          <article class="panel">
-            <p>
-              I'm Daniyal Aslam, a student with a strong interest in
-              Artificial Intelligence, Machine Learning and Software Development.
-            </p>
-
-            <p>
-              I enjoy exploring the ideas behind intelligent systems and
-              learning how software turns complex problems into practical solutions.
-            </p>
-
-            <p>
-              My focus is to strengthen my foundations in Computer Science,
-              keep improving through hands-on learning, and gradually turn
-              ideas into useful technology.
-            </p>
-          </article>
-
-          <aside class="panel" aria-label="Guiding principles">
+          <div class="card">
             <div class="principle">
-              <span class="number">01</span>
-              <div>
-                <strong>Stay curious</strong>
-                <span>Ask questions and understand the fundamentals.</span>
-              </div>
+              <strong>Curiosity</strong>
+              <p>Ask questions and explore new ideas.</p>
             </div>
 
             <div class="principle">
-              <span class="number">02</span>
-              <div>
-                <strong>Learn by building</strong>
-                <span>Turn concepts into practical experiments and projects.</span>
-              </div>
+              <strong>Consistency</strong>
+              <p>Improve through regular learning and practice.</p>
             </div>
 
             <div class="principle">
-              <span class="number">03</span>
-              <div>
-                <strong>Think long term</strong>
-                <span>Keep learning with meaningful goals in mind.</span>
-              </div>
+              <strong>Innovation</strong>
+              <p>Explore ways to solve meaningful problems.</p>
             </div>
-          </aside>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="education">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">02 — Education</div>
-            <h2>Academic journey.</h2>
-          </div>
+      <div class="container">
+        <div class="section-label">02 — EDUCATION</div>
+        <h2>Academic journey.</h2>
 
-          <p class="section-intro">
-            The foundation I'm building today, and the ambitions guiding
-            my next steps.
-          </p>
-        </div>
+        <p class="section-description">
+          My academic foundation and future aspirations.
+        </p>
 
-        <div class="timeline">
-          <article class="timeline-card">
-            <div class="timeline-date">2022 — 2024</div>
+        <div class="education-grid">
+          <article class="education-card">
+            <div class="date">2022 — 2024</div>
             <h3>Matriculation</h3>
-            <p>Academic milestone · A+ grade</p>
+            <p>A+ Grade</p>
           </article>
 
-          <article class="timeline-card">
-            <div class="timeline-date">2024 — 2026</div>
+          <article class="education-card">
+            <div class="date">2024 — 2026</div>
             <h3>FSc</h3>
-            <p>Academic milestone · A+ grade</p>
+            <p>A+ Grade</p>
           </article>
 
-          <article class="timeline-card">
-            <div class="timeline-date">FUTURE ASPIRATION</div>
+          <article class="education-card">
+            <div class="date">FUTURE ASPIRATION</div>
             <h3>MIT · USA</h3>
             <p>
-              A long-term academic aspiration: to pursue opportunities
+              An ambitious academic goal to pursue future opportunities
               at the Massachusetts Institute of Technology.
             </p>
           </article>
         </div>
 
-        <p class="note">
-          The MIT mention describes an aspiration, not an admission or affiliation.
+        <p class="small-note">
+          MIT is a future aspiration, not a claim of admission or affiliation.
         </p>
       </div>
     </section>
 
     <section id="interests">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">03 — Passion</div>
-            <h2>Curious about what<br>happens underneath.</h2>
-          </div>
+      <div class="container">
+        <div class="section-label">03 — INTERESTS</div>
+        <h2>Technology that inspires me.</h2>
 
-          <p class="section-intro">
-            The topics I'm exploring as I develop a stronger technical foundation.
-          </p>
-        </div>
+        <p class="section-description">
+          The fields I am interested in learning and exploring.
+        </p>
 
-        <div class="interest-grid">
-          <article class="interest">
-            <div class="symbol" aria-hidden="true">✳</div>
+        <div class="grid-four">
+          <article class="interest-card">
+            <div class="symbol">✳</div>
             <strong>Artificial Intelligence</strong>
             <small>Intelligent systems</small>
           </article>
 
-          <article class="interest">
-            <div class="symbol" aria-hidden="true">⌘</div>
+          <article class="interest-card">
+            <div class="symbol">⌘</div>
             <strong>Machine Learning</strong>
             <small>Learning from data</small>
           </article>
 
-          <article class="interest">
-            <div class="symbol" aria-hidden="true">◇</div>
+          <article class="interest-card">
+            <div class="symbol">◇</div>
             <strong>Agentic AI</strong>
             <small>AI agents and workflows</small>
           </article>
 
-          <article class="interest">
-            <div class="symbol" aria-hidden="true">⟨/⟩</div>
-            <strong>Software Engineering</strong>
-            <small>Building reliable software</small>
+          <article class="interest-card">
+            <div class="symbol">&lt;/&gt;</div>
+            <strong>Software Development</strong>
+            <small>Building useful software</small>
           </article>
         </div>
       </div>
     </section>
 
     <section id="vision">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">04 — Goals</div>
-            <h2>The future I want<br>to build.</h2>
-          </div>
+      <div class="container">
+        <div class="section-label">04 — MY VISION</div>
+        <h2>Big ambitions. One step at a time.</h2>
 
-          <p class="section-intro">
-            A long-term vision, approached one skill, one idea and one
-            meaningful step at a time.
-          </p>
-        </div>
+        <p class="section-description">
+          A long-term goal built on learning, effort, and practical experience.
+        </p>
 
-        <div class="vision">
-          <div class="vision-mark" aria-hidden="true">
+        <div class="vision-grid">
+          <div class="vision-logo">
             <span>DA.</span>
           </div>
 
           <div class="vision-copy">
             <p>
-              My long-term goal is to build an AI-focused software company
-              and create tools that solve meaningful real-world problems.
+              My long-term ambition is to build an AI-focused software
+              company and create technology that can make a meaningful
+              difference in people's lives.
             </p>
 
             <p>
-              I hope to develop my own AI-powered platform in the future.
-              For now, I'm focused on learning the fundamentals, exploring
-              emerging technologies and developing the skills needed to
-              make that ambition real.
+              I also hope to develop my own AI-powered platform in the future.
+              For now, I am focused on strengthening my Computer Science
+              fundamentals, exploring new technologies, and learning how
+              to turn ideas into real projects.
             </p>
 
-            <div class="milestone">
-              <strong>Current focus</strong>
-              Strengthening my Computer Science foundation and exploring
-              AI and software development.
+            <div class="goal">
+              <strong>My current priority</strong>
+              Build a strong foundation, learn consistently, and gain
+              practical development experience.
             </div>
           </div>
         </div>
@@ -859,106 +774,98 @@
     </section>
 
     <section id="skills">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">05 — Skills</div>
-            <h2>Areas I'm exploring.</h2>
-          </div>
+      <div class="container">
+        <div class="section-label">05 — SKILLS & LEARNING</div>
+        <h2>Growing through practice.</h2>
 
-          <p class="section-intro">
-            A growing set of interests. This section can later be updated
-            with specific tools, languages and projects as you gain experience.
-          </p>
-        </div>
+        <p class="section-description">
+          Areas I am exploring as I develop my technical knowledge.
+        </p>
 
-        <div class="interest-grid">
-          <article class="interest">
-            <div class="symbol" aria-hidden="true">01</div>
-            <strong>Programming & Coding</strong>
-            <small>Core technical practice</small>
+        <div class="grid-four">
+          <article class="interest-card">
+            <div class="symbol">01</div>
+            <strong>Programming</strong>
+            <small>Problem-solving fundamentals</small>
           </article>
 
-          <article class="interest">
-            <div class="symbol" aria-hidden="true">02</div>
+          <article class="interest-card">
+            <div class="symbol">02</div>
             <strong>Web Development</strong>
-            <small>Web experiences</small>
+            <small>Websites and user experiences</small>
           </article>
 
-          <article class="interest">
-            <div class="symbol" aria-hidden="true">03</div>
+          <article class="interest-card">
+            <div class="symbol">03</div>
             <strong>Computer Science</strong>
-            <small>Foundational concepts</small>
+            <small>Core computing concepts</small>
           </article>
 
-          <article class="interest">
-            <div class="symbol" aria-hidden="true">04</div>
-            <strong>Software Development</strong>
-            <small>From idea to implementation</small>
+          <article class="interest-card">
+            <div class="symbol">04</div>
+            <strong>AI Exploration</strong>
+            <small>Understanding emerging technology</small>
           </article>
         </div>
       </div>
     </section>
 
     <section id="achievements">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="section-label">06 — Achievements</div>
-            <h2>A journey still<br>in progress.</h2>
-          </div>
+      <div class="container">
+        <div class="section-label">06 — ACHIEVEMENTS</div>
+        <h2>Progress is a journey.</h2>
 
-          <p class="section-intro">
-            Every milestone is part of a longer process of learning,
-            practice and growth.
-          </p>
-        </div>
-
-        <div class="panel">
+        <div class="card">
           <p>
-            My academic achievements and scholarship certifications are
-            part of my ongoing educational journey. As I continue learning
-            and working on projects, I'll add verified milestones and
-            accomplishments here.
+            My academic progress is an important part of my journey.
+            As I gain experience, complete projects, and earn verified
+            certifications, I plan to document those milestones here.
           </p>
 
-          <p class="note">
-            For a stronger portfolio, add the names of specific certificates,
-            awards or projects when you're ready to share them.
+          <p>
+            I believe that continuous learning and practical experience
+            are essential for long-term growth.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="wrap">
+    <section id="contact">
+      <div class="container">
         <div class="contact-box">
-          <div>
-            <div class="section-label">07 — Contact</div>
-            <h2>Let's connect.</h2>
+          <div class="section-label">07 — CONTACT</div>
+          <h2>Let's connect.</h2>
 
-            <p>
-              For conversations about technology, learning, or potential
-              collaborations, feel free to reach out.
-            </p>
+          <p>
+            Interested in technology, AI, or exchanging ideas?
+            Feel free to reach out by email.
+          </p>
 
-            <a class="email" href="mailto:daniyalaslam453@gmail.com">
-              daniyalaslam453@gmail.com
+          <a
+            class="email"
+            href="mailto:daniyalaslam453@gmail.com"
+          >
+            daniyal aslam453@gmail.com
+          </a>
+
+          <div class="buttons">
+            <a
+              class="button button-primary"
+              href="mailto:daniyalaslam453@gmail.com"
+            >
+              Send me an email ↗
             </a>
           </div>
-
-          <a class="btn btn-primary" href="mailto:daniyalaslam453@gmail.com">
-            Send an email ↗
-          </a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
-    <div class="wrap footer-inner">
+    <div class="container footer-content">
       <span>
-        © <span id="year">2026</span> Daniyal Aslam. Made with curiosity.
+        © <span id="year">2026</span> Daniyal Aslam
       </span>
 
       <a class="back-top" href="#top">Back to top ↑</a>
@@ -966,259 +873,27 @@
   </footer>
 
   <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const menuButton = document.getElementById("menu-button");
+    const navLinks = document.getElementById("nav-links");
 
-    menuButton.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
+    menuButton.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
 
-      menuButton.setAttribute('aria-expanded', String(isOpen));
-      menuButton.textContent = isOpen ? 'Close' : 'Menu';
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "Close" : "Menu";
     });
 
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.textContent = 'Menu';
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "Menu";
       });
     });
 
-    document.querySelector('#year').textContent =
+    document.getElementById("year").textContent =
       new Date().getFullYear();
   </script>
-</body>
-          </html>        <span>Aslam.</span>
-            </h1>
-
-            <p class="hero-description">
-                A student exploring Artificial Intelligence, Machine Learning,
-                Software Development and Computer Science — with a vision to
-                build meaningful technology for the future.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">
-                    Discover My Journey
-                </a>
-
-                <a href="#contact" class="btn btn-secondary">
-                    Get In Touch
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-
-    <section id="about">
-        <div class="container">
-
-            <div class="about-grid">
-
-                <div>
-                    <div class="eyebrow">01 — About</div>
-                    <div class="about-number">01</div>
-                </div>
-
-                <div class="about-text">
-                    <h2 class="section-title">
-                        Building knowledge.<br>
-                        Exploring possibilities.
-                    </h2>
-
-                    <p>
-                        I am Daniyal Aslam, a student with a strong interest
-                        in Artificial Intelligence and Software Development.
-                    </p>
-
-                    <p>
-                        I enjoy exploring how modern technology works,
-                        especially the systems and ideas behind Artificial
-                        Intelligence and Machine Learning.
-                    </p>
-
-                    <p>
-                        My goal is to continuously learn Computer Science,
-                        improve my development skills and eventually turn
-                        ideas into real technology.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- EDUCATION -->
-
-    <section id="education">
-        <div class="container">
-
-            <div class="eyebrow">02 — Education</div>
-
-            <h2 class="section-title">
-                Academic Journey
-            </h2>
-
-            <p class="section-description">
-                My academic foundation and future aspirations.
-            </p>
-
-            <div class="cards">
-
-                <div class="card">
-                    <div class="card-number">2022 — 2024</div>
-                    <h3>Matriculation</h3>
-                    <p>A+ Grade</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">2024 — 2026</div>
-                    <h3>FSc</h3>
-                    <p>A+ Grade</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">Future Aspiration</div>
-                    <h3>MIT — USA</h3>
-                    <p>
-                        Massachusetts Institute of Technology
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- PASSION -->
-
-    <section id="passion">
-        <div class="container">
-
-            <div class="eyebrow">03 — Passion</div>
-
-            <h2 class="section-title">
-                Curious about<br>
-                what happens underneath.
-            </h2>
-
-            <p class="section-description">
-                My primary interests are Artificial Intelligence and
-                Software Development. I want to understand how intelligent
-                systems work behind the scenes and how Machine Learning
-                contributes to modern AI.
-            </p>
-
-        </div>
-    </section>
-
-    <!-- GOALS -->
-
-    <section id="goals">
-        <div class="container">
-
-            <div class="eyebrow">04 — Vision</div>
-
-            <h2 class="section-title">
-                The Future I Want<br>
-                To Build
-            </h2>
-
-            <div class="goal-box">
-                <p>
-                    My long-term goal is to build an AI-focused software
-                    company and create technology capable of solving
-                    meaningful real-world problems. I also aspire to develop
-                    my own AI-powered platform or tool in the future.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-
-    <section id="skills">
-        <div class="container">
-
-            <div class="eyebrow">05 — Skills</div>
-
-            <h2 class="section-title">
-                Areas I'm Exploring
-            </h2>
-
-            <div class="skills">
-
-                <div class="skill">Artificial Intelligence</div>
-                <div class="skill">Machine Learning</div>
-                <div class="skill">Agentic AI</div>
-                <div class="skill">Software Engineering</div>
-                <div class="skill">Software Development</div>
-                <div class="skill">Programming & Coding</div>
-                <div class="skill">Web Development</div>
-                <div class="skill">Computer Science</div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ACHIEVEMENTS -->
-
-    <section id="achievements">
-        <div class="container">
-
-            <div class="eyebrow">06 — Achievements</div>
-
-            <h2 class="section-title">
-                A Journey Still<br>
-                In Progress.
-            </h2>
-
-            <p class="section-description">
-                My academic achievements and scholarship certifications
-                are part of my ongoing educational journey. More milestones
-                will be added as I continue to learn, build and grow.
-            </p>
-
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-
-    <section id="contact">
-        <div class="container contact">
-
-            <div class="contact-content">
-
-                <div class="eyebrow">07 — Contact</div>
-
-                <h2 class="section-title">
-                    Let's Connect.
-                </h2>
-
-                <p class="section-description" style="margin: auto;">
-                    For professional or technology-related conversations,
-                    feel free to reach out.
-                </p>
-
-                <a
-                    href="mailto:daniyalaslam453@gmail.com"
-                    class="email">
-                    daniyalaslam453@gmail.com
-                </a>
-
-            </div>
-
-        </div>
-    </section>
-
-    <footer>
-        © 2026 Daniyal Aslam. All rights reserved.
-    </footer>
 
 </body>
 </html>

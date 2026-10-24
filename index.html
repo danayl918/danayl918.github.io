@@ -4,42 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#171717">
-  <meta name="description" content="Daniyal Aslam — Student exploring Artificial Intelligence, Machine Learning and Software Development.">
-  <title>Daniyal Aslam | Personal Portfolio</title>
+  <meta name="theme-color" content="#101311">
+  <meta name="description" content="Daniyal Aslam — aspiring Computer Science student, AI enthusiast, and future technology entrepreneur committed to building in Pakistan.">
+  <title>Daniyal Aslam | Future Technology Entrepreneur</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #171717;
-      --card: #202020;
-      --text: #f5f5f5;
-      --muted: #b0b0b0;
-      --accent: #a3d9b1;
-      --border: #353535;
-      --width: 1080px;
+      --bg: #101311;
+      --surface: #171c18;
+      --surface-light: #1d241f;
+      --text: #f5f6f3;
+      --muted: #a6afa8;
+      --green: #8ce5b4;
+      --green-bright: #19c98a;
+      --border: #303a33;
+      --max-width: 1120px;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 85px;
       -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
     }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: "DM Sans", Arial, sans-serif;
       font-size: 16px;
       line-height: 1.7;
-      overflow-wrap: break-word;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -53,119 +57,145 @@
     }
 
     .container {
-      width: min(var(--width), calc(100% - 40px));
-      margin-inline: auto;
+      width: min(var(--max-width), calc(100% - 48px));
+      margin: 0 auto;
     }
 
     /* Navigation */
 
-    header {
+    .header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(23, 23, 23, 0.96);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
+      background: rgba(16, 19, 17, 0.94);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      backdrop-filter: blur(16px);
     }
 
     .navbar {
-      min-height: 68px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .logo {
-      font-size: 25px;
+      font-size: 27px;
       font-weight: 800;
-      letter-spacing: -1.5px;
+      letter-spacing: -2px;
     }
 
     .logo span {
-      color: var(--accent);
+      color: var(--green-bright);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 23px;
+      gap: 25px;
     }
 
     .nav-links a {
-      font-size: 14px;
-      color: #d0d0d0;
+      color: #c5ccc6;
+      font-size: 13px;
+      font-weight: 500;
       transition: color .2s;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
+      color: var(--green);
+    }
+
+    .nav-contact {
+      border: 1px solid var(--border);
+      padding: 8px 15px;
+      border-radius: 30px;
     }
 
     .menu-button {
       display: none;
-      color: var(--text);
-      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 8px 13px;
+      background: var(--surface);
+      color: var(--text);
       cursor: pointer;
     }
 
     /* Hero */
 
     .hero {
-      padding: 100px 0 80px;
+      position: relative;
+      padding: 105px 0 82px;
       border-bottom: 1px solid var(--border);
       background:
-        radial-gradient(ellipse at 90% 0%,
-        rgba(163, 217, 177, .09), transparent 45%);
+        radial-gradient(ellipse at 90% 10%,
+        rgba(25,201,138,.10), transparent 43%);
     }
 
-    .eyebrow {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .eyebrow,
+    .section-label {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
       text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(46px, 8vw, 82px);
-      line-height: 1.06;
-      letter-spacing: -4px;
-      font-weight: 750;
-      margin: 22px 0;
+      font-size: clamp(56px, 8vw, 94px);
+      line-height: .98;
+      letter-spacing: -5px;
+      font-weight: 800;
+      margin: 25px 0;
     }
 
-    h1 span {
-      color: #aaa;
+    .name-second {
+      display: block;
+      color: #9aa49d;
+    }
+
+    .serif {
+      color: var(--green-bright);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -1px;
     }
 
     .hero-description {
-      max-width: 640px;
+      max-width: 600px;
       color: var(--muted);
-      font-size: 17px;
-      line-height: 1.8;
+      font-size: 16px;
+      line-height: 1.9;
     }
 
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 27px;
+      margin-top: 28px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 11px 18px;
-      border-radius: 30px;
+      gap: 9px;
+      padding: 12px 18px;
       border: 1px solid var(--border);
-      font-size: 14px;
-      font-weight: 650;
-      transition: .2s;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform .2s, background .2s;
     }
 
     .button:hover {
@@ -173,145 +203,210 @@
     }
 
     .button-primary {
-      background: var(--accent);
-      color: #142019;
-      border-color: var(--accent);
+      background: var(--green);
+      color: #102017;
+      border-color: var(--green);
     }
 
     .button-secondary {
       background: transparent;
+      color: var(--text);
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
 
     .tag {
+      color: #c4ccc6;
       border: 1px solid var(--border);
+      padding: 6px 12px;
       border-radius: 30px;
-      padding: 5px 11px;
-      color: #ccc;
+      font-size: 11px;
+    }
+
+    .hero-card {
+      padding: 30px;
+      border: 1px solid #344238;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #1b271f, #141815);
+    }
+
+    .hero-card-label {
+      color: var(--green);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+
+    .hero-monogram {
+      color: var(--green);
+      font-size: 67px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -6px;
+      margin: 12px 0 22px;
+    }
+
+    .hero-card h2 {
+      font-size: 21px;
+      line-height: 1.4;
+      letter-spacing: -.7px;
+      margin-bottom: 12px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-line {
+      height: 1px;
+      background: var(--border);
+      margin: 22px 0;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #d5ddd7;
       font-size: 12px;
     }
 
-    /* Sections */
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green-bright);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Shared sections */
 
     section {
-      padding: 70px 0;
+      padding: 78px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .section-label {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.2;
-      letter-spacing: -1.5px;
-      margin: 10px 0 15px;
+    h2.section-title {
+      font-size: clamp(30px, 4.6vw, 47px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+      font-weight: 800;
+      margin: 12px 0;
     }
 
     .section-description {
+      max-width: 620px;
       color: var(--muted);
-      font-size: 15px;
-      max-width: 560px;
-      margin-bottom: 28px;
+      font-size: 14px;
+      line-height: 1.85;
+      margin-bottom: 30px;
     }
 
     .grid-two {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 20px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
     }
 
-    .card {
+    .panel {
       min-width: 0;
-      background: var(--card);
+      padding: 25px;
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 17px;
     }
 
-    .card p {
-      color: #c5c5c5;
-      font-size: 15px;
+    .panel p {
+      color: #c3ccc5;
+      font-size: 14px;
+      line-height: 1.9;
       margin-bottom: 14px;
     }
 
-    .card p:last-child {
+    .panel p:last-child {
       margin-bottom: 0;
     }
 
     .principle {
-      padding: 13px 0;
+      padding: 14px 0;
       border-bottom: 1px solid var(--border);
+    }
+
+    .principle:first-child {
+      padding-top: 0;
     }
 
     .principle:last-child {
       border-bottom: 0;
+      padding-bottom: 0;
     }
 
     .principle strong {
       display: block;
-      font-size: 15px;
-      margin-bottom: 3px;
+      font-size: 14px;
+      margin-bottom: 4px;
     }
 
     .principle p {
-      font-size: 13px;
-      margin: 0;
       color: var(--muted);
+      font-size: 12px;
+      margin: 0;
     }
 
-    /* Education */
+    /* Education and future plan */
 
-    .education-grid {
+    .roadmap {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
 
-    .education-card {
+    .roadmap-card {
       min-width: 0;
-      background: var(--card);
+      padding: 23px;
       border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 21px;
+      border-radius: 17px;
+      background: var(--surface);
     }
 
-    .date {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .5px;
+    .roadmap-number {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
     }
 
-    h3 {
+    .roadmap-card h3 {
       font-size: 18px;
       line-height: 1.4;
-      margin: 16px 0 8px;
+      letter-spacing: -.5px;
+      margin: 17px 0 9px;
     }
 
-    .education-card p {
+    .roadmap-card p {
       color: var(--muted);
       font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .roadmap-card.featured {
+      border-color: #45644f;
+      background: linear-gradient(150deg, #1d2b21, #171c18);
     }
 
     .small-note {
-      color: #898989;
-      font-size: 12px;
-      margin-top: 14px;
+      color: #879188;
+      font-size: 11px;
+      margin-top: 15px;
     }
 
-    /* Interests and skills */
+    /* Interests */
 
     .grid-four {
       display: grid;
@@ -322,129 +417,197 @@
     .interest-card {
       min-width: 0;
       padding: 19px;
-      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      transition: border-color .2s, transform .2s;
+      background: var(--surface);
+      border-radius: 15px;
+      transition: transform .2s, border-color .2s;
     }
 
     .interest-card:hover {
-      border-color: #66816c;
       transform: translateY(-3px);
+      border-color: #557360;
     }
 
-    .symbol {
-      color: var(--accent);
-      font-size: 21px;
-      margin-bottom: 10px;
+    .interest-symbol {
+      color: var(--green);
+      font-size: 22px;
+      margin-bottom: 12px;
     }
 
     .interest-card strong {
       display: block;
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .interest-card small {
       display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Pakistan vision */
+
+    .vision-box {
+      padding: clamp(25px, 5vw, 42px);
+      border: 1px solid #34483a;
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at 100% 0%,
+        rgba(25,201,138,.09), transparent 48%),
+        var(--surface);
+    }
+
+    .vision-heading {
+      max-width: 800px;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin: 15px 0 22px;
+    }
+
+    .vision-text {
+      max-width: 750px;
+      color: #c1cbc4;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .vision-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .vision-step {
+      padding: 19px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+    }
+
+    .vision-step span {
+      display: block;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .vision-step strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .vision-step p {
       color: var(--muted);
       font-size: 12px;
-      margin-top: 5px;
+      line-height: 1.8;
     }
 
-    /* Vision */
+    /* Skills */
 
-    .vision-grid {
-      display: grid;
-      grid-template-columns: .7fr 1.3fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .vision-logo {
-      min-height: 210px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #28342b, #202020);
+    .skill-card {
+      padding: 18px;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
+      background: var(--surface);
     }
 
-    .vision-logo span {
-      color: var(--accent);
-      font-size: 55px;
-      font-weight: 800;
-      letter-spacing: -4px;
-    }
-
-    .vision-copy p {
-      color: #c5c5c5;
-      font-size: 15px;
-      margin-bottom: 15px;
-    }
-
-    .goal {
-      border-left: 2px solid var(--accent);
-      padding-left: 15px;
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .goal strong {
+    .skill-card strong {
       display: block;
-      color: var(--text);
-      margin-bottom: 4px;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 12px;
     }
 
     /* Contact */
 
     .contact-box {
-      padding: 32px;
-      background: var(--card);
+      padding: clamp(26px, 5vw, 45px);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      background: linear-gradient(135deg, #1c251f, #171c18);
+      border-radius: 21px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(32px, 5vw, 49px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin: 12px 0;
     }
 
     .contact-box p {
-      max-width: 540px;
+      max-width: 560px;
       color: var(--muted);
-      font-size: 15px;
-      margin: 12px 0 20px;
+      font-size: 14px;
+      margin-bottom: 20px;
     }
 
     .email {
-      color: var(--accent);
-      font-size: 15px;
-      font-weight: 650;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
       overflow-wrap: anywhere;
     }
 
     footer {
-      padding: 24px 0;
-      color: #888;
-      font-size: 12px;
+      padding: 25px 0;
+      color: #8a948c;
+      font-size: 11px;
     }
 
     .footer-content {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 15px;
     }
 
     .back-top {
-      color: #ccc;
+      color: #c6d0c8;
     }
 
-    /* Responsive layout */
+    /* Responsive */
 
-    @media (max-width: 760px) {
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .hero-card {
+        max-width: 560px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .roadmap {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap-card {
+        padding: 21px;
+      }
+    }
+
+    @media (max-width: 680px) {
       .container {
         width: calc(100% - 36px);
       }
 
       .navbar {
-        min-height: 62px;
+        min-height: 65px;
       }
 
       .menu-button {
@@ -454,16 +617,16 @@
       .nav-links {
         display: none;
         position: absolute;
-        top: 61px;
+        top: 64px;
         left: 18px;
         right: 18px;
-        padding: 10px;
+        padding: 12px;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        background: #202020;
+        background: #171c18;
         border: 1px solid var(--border);
-        border-radius: 13px;
+        border-radius: 15px;
       }
 
       .nav-links.open {
@@ -471,80 +634,99 @@
       }
 
       .nav-links a {
-        padding: 10px;
+        padding: 11px;
         font-size: 14px;
       }
 
+      .nav-contact {
+        margin-top: 4px;
+        text-align: center;
+      }
+
       .hero {
-        padding: 70px 0 58px;
+        padding: 65px 0 55px;
       }
 
       h1 {
-        font-size: clamp(44px, 12vw, 65px);
-        letter-spacing: -2.5px;
+        font-size: clamp(52px, 13vw, 76px);
+        letter-spacing: -3px;
       }
 
       .hero-description {
-        font-size: 16px;
+        font-size: 14px;
+      }
+
+      .hero-card {
+        padding: 23px;
+      }
+
+      .hero-monogram {
+        font-size: 58px;
       }
 
       section {
-        padding: 55px 0;
+        padding: 57px 0;
       }
 
-      .grid-two,
-      .vision-grid {
+      h2.section-title {
+        letter-spacing: -1.2px;
+      }
+
+      .grid-two {
         grid-template-columns: 1fr;
-      }
-
-      .education-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .education-card {
-        padding: 20px;
       }
 
       .grid-four {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .interest-card {
-        padding: 15px;
+      .vision-steps {
+        grid-template-columns: 1fr;
       }
 
-      .contact-box {
-        padding: 23px;
+      .panel {
+        padding: 21px;
+      }
+
+      .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
 
-    @media (max-width: 380px) {
+    @media (max-width: 360px) {
       .container {
         width: calc(100% - 28px);
       }
 
-      .hero {
-        padding-top: 55px;
-      }
-
       h1 {
-        font-size: 42px;
+        font-size: 47px;
       }
 
-      h2 {
-        font-size: 27px;
+      .buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
       }
 
       .grid-four {
-        gap: 9px;
+        gap: 8px;
       }
 
       .interest-card {
-        padding: 12px;
+        padding: 13px;
       }
+    }
 
-      .footer-content {
-        flex-direction: column;
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -552,7 +734,7 @@
 
 <body id="top">
 
-  <header>
+  <header class="header">
     <div class="container navbar">
       <a href="#top" class="logo" aria-label="Daniyal Aslam home">
         DA<span>.</span>
@@ -572,320 +754,117 @@
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#interests">Interests</a>
-        <a href="#vision">Vision</a>
+        <a href="#vision">My Vision</a>
         <a href="#skills">Skills</a>
-        <a href="#contact">Contact ↗</a>
+        <a class="nav-contact" href="#contact">Contact ↗</a>
       </nav>
     </div>
   </header>
 
   <main>
 
+    <!-- HERO -->
+
     <section class="hero">
-      <div class="container">
-        <div class="eyebrow">AI · Computer Science · Software</div>
+      <div class="container hero-grid">
 
-        <h1>Daniyal<br><span>Aslam.</span></h1>
+        <div>
+          <div class="eyebrow">
+            Computer Science · AI · Entrepreneurship
+          </div>
 
-        <p class="hero-description">
-          A student exploring Artificial Intelligence, Machine Learning,
-          and Software Development. I am passionate about learning how
-          technology works and how it can be used to solve real-world problems.
-        </p>
+          <h1>
+            Daniyal
+            <span class="name-second">Aslam.</span>
+          </h1>
 
-        <div class="buttons">
-          <a href="#about" class="button button-primary">
-            Explore my journey ↓
-          </a>
+          <p class="hero-description">
+            An aspiring Computer Science student passionate about Artificial
+            Intelligence, software engineering, and building technology that
+            creates meaningful opportunities for the future.
+          </p>
 
-          <a href="#contact" class="button button-secondary">
-            Get in touch ↗
-          </a>
+          <div class="buttons">
+            <a class="button button-primary" href="#vision">
+              Explore my vision ↘
+            </a>
+
+            <a class="button button-secondary" href="#contact">
+              Let's connect ↗
+            </a>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Artificial Intelligence</span>
+            <span class="tag">Software Engineering</span>
+            <span class="tag">Entrepreneurship</span>
+          </div>
         </div>
 
-        <div class="tags">
-          <span class="tag">Artificial Intelligence</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Software Development</span>
-        </div>
+        <aside class="hero-card">
+          <div class="hero-card-label">PERSONAL PORTFOLIO</div>
+
+          <div class="hero-monogram">DA.</div>
+
+          <h2>
+            Learning today.<br>
+            <span class="serif">Building for tomorrow.</span>
+          </h2>
+
+          <p>
+            Focused on education, technical growth, and a long-term vision
+            to build an innovative software company in Pakistan.
+          </p>
+
+          <div class="card-line"></div>
+
+          <div class="status">
+            <span class="status-dot"></span>
+            Aspiring Computer Science student
+          </div>
+        </aside>
+
       </div>
     </section>
+
+    <!-- ABOUT -->
 
     <section id="about">
       <div class="container">
         <div class="section-label">01 — ABOUT ME</div>
-        <h2>A curious mind. A long-term vision.</h2>
+
+        <h2 class="section-title">
+          A curious mind.<br>
+          <span class="serif">A purpose-driven future.</span>
+        </h2>
 
         <p class="section-description">
-          Learning today, building for tomorrow.
+          My journey is about learning, building practical skills,
+          and preparing to create technology that matters.
         </p>
 
         <div class="grid-two">
-          <div class="card">
+          <div class="panel">
             <p>
-              I am Daniyal Aslam, a student with a strong interest in
+              I am Daniyal Aslam, a student interested in Computer Science,
               Artificial Intelligence, Machine Learning, and Software Development.
             </p>
 
             <p>
-              I enjoy exploring how modern technology works, especially
-              the systems and ideas behind intelligent machines and
-              software applications.
+              I want to understand how technology works, develop strong
+              problem-solving skills, and learn how to turn ideas into
+              useful software products.
             </p>
 
             <p>
-              My goal is to keep learning Computer Science, strengthen
-              my technical foundation, and gradually turn ideas into
-              useful technology.
+              My ambitions go beyond personal success. In the long term,
+              I hope to use the knowledge and experience I gain to create
+              opportunities and contribute to Pakistan's technology sector.
             </p>
           </div>
 
-          <div class="card">
-            <div class="principle">
-              <strong>Curiosity</strong>
-              <p>Ask questions and explore new ideas.</p>
-            </div>
-
-            <div class="principle">
-              <strong>Consistency</strong>
-              <p>Improve through regular learning and practice.</p>
-            </div>
-
-            <div class="principle">
-              <strong>Innovation</strong>
-              <p>Explore ways to solve meaningful problems.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <div class="section-label">02 — EDUCATION</div>
-        <h2>Academic journey.</h2>
-
-        <p class="section-description">
-          My academic foundation and future aspirations.
-        </p>
-
-        <div class="education-grid">
-          <article class="education-card">
-            <div class="date">2022 — 2024</div>
-            <h3>Matriculation</h3>
-            <p>A+ Grade</p>
-          </article>
-
-          <article class="education-card">
-            <div class="date">2024 — 2026</div>
-            <h3>FSc</h3>
-            <p>A+ Grade</p>
-          </article>
-
-          <article class="education-card">
-            <div class="date">FUTURE ASPIRATION</div>
-            <h3>MIT · USA</h3>
-            <p>
-              An ambitious academic goal to pursue future opportunities
-              at the Massachusetts Institute of Technology.
-            </p>
-          </article>
-        </div>
-
-        <p class="small-note">
-          MIT is a future aspiration, not a claim of admission or affiliation.
-        </p>
-      </div>
-    </section>
-
-    <section id="interests">
-      <div class="container">
-        <div class="section-label">03 — INTERESTS</div>
-        <h2>Technology that inspires me.</h2>
-
-        <p class="section-description">
-          The fields I am interested in learning and exploring.
-        </p>
-
-        <div class="grid-four">
-          <article class="interest-card">
-            <div class="symbol">✳</div>
-            <strong>Artificial Intelligence</strong>
-            <small>Intelligent systems</small>
-          </article>
-
-          <article class="interest-card">
-            <div class="symbol">⌘</div>
-            <strong>Machine Learning</strong>
-            <small>Learning from data</small>
-          </article>
-
-          <article class="interest-card">
-            <div class="symbol">◇</div>
-            <strong>Agentic AI</strong>
-            <small>AI agents and workflows</small>
-          </article>
-
-          <article class="interest-card">
-            <div class="symbol">&lt;/&gt;</div>
-            <strong>Software Development</strong>
-            <small>Building useful software</small>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="vision">
-      <div class="container">
-        <div class="section-label">04 — MY VISION</div>
-        <h2>Big ambitions. One step at a time.</h2>
-
-        <p class="section-description">
-          A long-term goal built on learning, effort, and practical experience.
-        </p>
-
-        <div class="vision-grid">
-          <div class="vision-logo">
-            <span>DA.</span>
-          </div>
-
-          <div class="vision-copy">
-            <p>
-              My long-term ambition is to build an AI-focused software
-              company and create technology that can make a meaningful
-              difference in people's lives.
-            </p>
-
-            <p>
-              I also hope to develop my own AI-powered platform in the future.
-              For now, I am focused on strengthening my Computer Science
-              fundamentals, exploring new technologies, and learning how
-              to turn ideas into real projects.
-            </p>
-
-            <div class="goal">
-              <strong>My current priority</strong>
-              Build a strong foundation, learn consistently, and gain
-              practical development experience.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <div class="section-label">05 — SKILLS & LEARNING</div>
-        <h2>Growing through practice.</h2>
-
-        <p class="section-description">
-          Areas I am exploring as I develop my technical knowledge.
-        </p>
-
-        <div class="grid-four">
-          <article class="interest-card">
-            <div class="symbol">01</div>
-            <strong>Programming</strong>
-            <small>Problem-solving fundamentals</small>
-          </article>
-
-          <article class="interest-card">
-            <div class="symbol">02</div>
-            <strong>Web Development</strong>
-            <small>Websites and user experiences</small>
-          </article>
-
-          <article class="interest-card">
-            <div class="symbol">03</div>
-            <strong>Computer Science</strong>
-            <small>Core computing concepts</small>
-          </article>
-
-          <article class="interest-card">
-            <div class="symbol">04</div>
-            <strong>AI Exploration</strong>
-            <small>Understanding emerging technology</small>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="achievements">
-      <div class="container">
-        <div class="section-label">06 — ACHIEVEMENTS</div>
-        <h2>Progress is a journey.</h2>
-
-        <div class="card">
-          <p>
-            My academic progress is an important part of my journey.
-            As I gain experience, complete projects, and earn verified
-            certifications, I plan to document those milestones here.
-          </p>
-
-          <p>
-            I believe that continuous learning and practical experience
-            are essential for long-term growth.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="contact-box">
-          <div class="section-label">07 — CONTACT</div>
-          <h2>Let's connect.</h2>
-
-          <p>
-            Interested in technology, AI, or exchanging ideas?
-            Feel free to reach out by email.
-          </p>
-
-          <a
-            class="email"
-            href="mailto:daniyalaslam453@gmail.com"
-          >
-            daniyal aslam453@gmail.com
-          </a>
-
-          <div class="buttons">
-            <a
-              class="button button-primary"
-              href="mailto:daniyalaslam453@gmail.com"
-            >
-              Send me an email ↗
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container footer-content">
-      <span>
-        © <span id="year">2026</span> Daniyal Aslam
-      </span>
-
-      <a class="back-top" href="#top">Back to top ↑</a>
-    </div>
-  </footer>
-
-  <script>
-    const menuButton = document.getElementById("menu-button");
-    const navLinks = document.getElementById("nav-links");
-
-    menuButton.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("open");
-
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-      menuButton.textContent = isOpen ? "Close" : "Menu";
-    });
-
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
+          <div class="panel">
+     opclassList.remove("open");
         menuButton.setAttribute("aria-expanded", "false");
         menuButton.textContent = "Menu";
       });

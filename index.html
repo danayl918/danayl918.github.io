@@ -1,505 +1,220 @@
+from pathlib import Path
 
-<!DOCTYPE html>
+html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101311">
-  <meta name="description" content="Daniyal Aslam — aspiring Computer Science student, AI enthusiast, and future technology entrepreneur committed to building in Pakistan.">
-  <title>Daniyal Aslam | Future Technology Entrepreneur</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #101311;
-      --surface: #171c18;
-      --surface-light: #1d241f;
-      --text: #f5f6f3;
-      --muted: #a6afa8;
-      --green: #8ce5b4;
-      --green-bright: #19c98a;
-      --border: #303a33;
-      --max-width: 1120px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-      -webkit-text-size-adjust: 100%;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "DM Sans", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    /* Navigation */
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(16, 19, 17, 0.94);
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      backdrop-filter: blur(16px);
-    }
-
-    .navbar {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: 800;
-      letter-spacing: -2px;
-    }
-
-    .logo span {
-      color: var(--green-bright);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .nav-links a {
-      color: #c5ccc6;
-      font-size: 13px;
-      font-weight: 500;
-      transition: color .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--green);
-    }
-
-    .nav-contact {
-      border: 1px solid var(--border);
-      padding: 8px 15px;
-      border-radius: 30px;
-    }
-
-    .menu-button {
-      display: none;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 13px;
-      background: var(--surface);
-      color: var(--text);
-      cursor: pointer;
-    }
-
-    /* Hero */
-
-    .hero {
-      position: relative;
-      padding: 105px 0 82px;
-      border-bottom: 1px solid var(--border);
-      background:
-        radial-gradient(ellipse at 90% 10%,
-        rgba(25,201,138,.10), transparent 43%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      align-items: center;
-      gap: 48px;
-    }
-
-    .eyebrow,
-    .section-label {
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: clamp(56px, 8vw, 94px);
-      line-height: .98;
-      letter-spacing: -5px;
-      font-weight: 800;
-      margin: 25px 0;
-    }
-
-    .name-second {
-      display: block;
-      color: #9aa49d;
-    }
-
-    .serif {
-      color: var(--green-bright);
-      font-family: "Instrument Serif", Georgia, serif;
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: -1px;
-    }
-
-    .hero-description {
-      max-width: 600px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.9;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 12px 18px;
-      border: 1px solid var(--border);
-      border-radius: 40px;
-      font-size: 13px;
-      font-weight: 700;
-      transition: transform .2s, background .2s;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      background: var(--green);
-      color: #102017;
-      border-color: var(--green);
-    }
-
-    .button-secondary {
-      background: transparent;
-      color: var(--text);
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 30px;
-    }
-
-    .tag {
-      color: #c4ccc6;
-      border: 1px solid var(--border);
-      padding: 6px 12px;
-      border-radius: 30px;
-      font-size: 11px;
-    }
-
-    .hero-card {
-      padding: 30px;
-      border: 1px solid #344238;
-      border-radius: 24px;
-      background: linear-gradient(145deg, #1b271f, #141815);
-    }
-
-    .hero-card-label {
-      color: var(--green);
-      font-size: 10px;
-      letter-spacing: 2px;
-      font-weight: 800;
-    }
-
-    .hero-monogram {
-      color: var(--green);
-      font-size: 67px;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -6px;
-      margin: 12px 0 22px;
-    }
-
-    .hero-card h2 {
-      font-size: 21px;
-      line-height: 1.4;
-      letter-spacing: -.7px;
-      margin-bottom: 12px;
-    }
-
-    .hero-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .card-line {
-      height: 1px;
-      background: var(--border);
-      margin: 22px 0;
-    }
-
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: #d5ddd7;
-      font-size: 12px;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--green-bright);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* Shared sections */
-
-    section {
-      padding: 78px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    h2.section-title {
-      font-size: clamp(30px, 4.6vw, 47px);
-      line-height: 1.15;
-      letter-spacing: -2px;
-      font-weight: 800;
-      margin: 12px 0;
-    }
-
-    .section-description {
-      max-width: 620px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.85;
-      margin-bottom: 30px;
-    }
-
-    .grid-two {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-    }
-
-    .panel {
-      min-width: 0;
-      padding: 25px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 17px;
-    }
-
-    .panel p {
-      color: #c3ccc5;
-      font-size: 14px;
-      line-height: 1.9;
-      margin-bottom: 14px;
-    }
-
-    .panel p:last-child {
-      margin-bottom: 0;
-    }
-
-    .principle {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .principle:first-child {
-      padding-top: 0;
-    }
-
-    .principle:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .principle strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .principle p {
-      color: var(--muted);
-      font-size: 12px;
-      margin: 0;
-    }
-
-    /* Education and future plan */
-
-    .roadmap {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .roadmap-card {
-      min-width: 0;
-      padding: 23px;
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      background: var(--surface);
-    }
-
-    .roadmap-number {
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-    }
-
-    .roadmap-card h3 {
-      font-size: 18px;
-      line-height: 1.4;
-      letter-spacing: -.5px;
-      margin: 17px 0 9px;
-    }
-
-    .roadmap-card p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .roadmap-card.featured {
-      border-color: #45644f;
-      background: linear-gradient(150deg, #1d2b21, #171c18);
-    }
-
-    .small-note {
-      color: #879188;
-      font-size: 11px;
-      margin-top: 15px;
-    }
-
-    /* Interests */
-
-    .grid-four {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .interest-card {
-      min-width: 0;
-      padding: 19px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      border-radius: 15px;
-      transition: transform .2s, border-color .2s;
-    }
-
-    .interest-card:hover {
-      transform: translateY(-3px);
-      border-color: #557360;
-    }
-
-    .interest-symbol {
-      color: var(--green);
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .interest-card strong {
-      display: block;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .interest-card small {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    /* Pakistan vision */
-
-    .vision-box {
-      padding: clamp(25px, 5vw, 42px);
-      border: 1px solid #34483a;
-      border-radius: 22px;
-      background:
-        radial-gradient(ellipse at 100% 0%,
-        rgba(25,201,138,.09), transparent 48%),
-        var(--surface);
-    }
-
-    .vision-heading {
-      max-width: 800px;
-      font-size: clamp(32px, 5vw, 54px);
-      line-height: 1.15;
-      letter-spacing: -2px;
-      margin: 15px 0 22px;
-    }
-
-    .vision-text {
-      max-width: 750px;
-      color: #c1cbc4;
-      font-size: 15px;
-      line-height: 1.95;
-    }
-
-    .vision-steps {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 13px;
-      margin-top: 30px;
-    }
-
-    .vision-step {
-      padding: 19px;
-      background: rgba(255,255,255,.025);
-      border: 1px solid var(--border);
-      border-radius: 13px;
-    }
-
-    .vision-step span {
-      display: block;
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .vision-step strong {
-      display: block;
-      font-size: 14px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f9f7">
+<meta name="description" content="Daniyal Aslam — aspiring Computer Science student interested in AI, software engineering, and building a technology company in Pakistan.">
+<title>Daniyal Aslam | Computer Science & Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f9f7;--surface:#fff;--surface2:#f0f3ef;--text:#171b18;--muted:#626b64;--green:#087f50;--green-soft:#e2f5e9;--border:#dfe5df;--max:1080px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",Arial,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),calc(100% - 44px));margin:auto}
+.header{position:sticky;top:0;z-index:10;background:rgba(248,249,247,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.navbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:27px;font-weight:800;letter-spacing:-2px}.logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:23px}.nav-links a{font-size:13px;font-weight:600;color:#4c554e}.nav-links a:hover{color:var(--green)}
+.nav-contact{padding:8px 14px;border:1px solid var(--border);border-radius:30px}
+.menu-button{display:none;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 13px;color:var(--text);font:inherit}
+.hero{padding:90px 0 75px;border-bottom:1px solid var(--border);background:radial-gradient(ellipse at 90% 5%,rgba(8,127,80,.09),transparent 42%)}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:42px}
+.eyebrow,.section-label{color:var(--green);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(58px,8vw,92px);line-height:.98;letter-spacing:-5px;font-weight:800;margin:24px 0}
+.name-second{display:block;color:#8b948d}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;color:var(--green);font-weight:400;letter-spacing:-1px}
+.hero-description{max-width:590px;color:var(--muted);font-size:16px;line-height:1.9}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--border);border-radius:40px;font-size:13px;font-weight:700;transition:transform .2s}
+.button:hover{transform:translateY(-2px)}
+.primary{background:var(--green);color:white;border-color:var(--green)}.secondary{background:transparent}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.tag{font-size:11px;color:#4e5850;border:1px solid var(--border);border-radius:30px;padding:6px 11px}
+.hero-card{padding:28px;border:1px solid #d6e4d9;border-radius:22px;background:linear-gradient(145deg,#fff,#f0f7f1);box-shadow:0 14px 38px rgba(30,55,35,.05)}
+.card-label{color:var(--green);font-size:10px;letter-spacing:2px;font-weight:800}.monogram{font-size:66px;font-weight:800;line-height:1.2;letter-spacing:-6px;color:var(--green);margin:12px 0 20px}
+.hero-card h2{font-size:21px;line-height:1.4;letter-spacing:-.6px;margin-bottom:10px}.hero-card p{font-size:13px;color:var(--muted)}
+.card-line{height:1px;background:var(--border);margin:20px 0}.status{font-size:12px;display:flex;gap:8px;align-items:center}.dot{width:7px;height:7px;background:#159b62;border-radius:50%}
+section.content-section{padding:72px 0;border-bottom:1px solid var(--border)}
+.section-title{font-size:clamp(31px,4.5vw,46px);line-height:1.15;letter-spacing:-2px;font-weight:800;margin:12px 0}
+.section-description{max-width:650px;color:var(--muted);font-size:14px;line-height:1.85;margin-bottom:28px}
+.two-col{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.panel{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;min-width:0}
+.panel p{font-size:14px;line-height:1.9;color:#525c54;margin-bottom:13px}.panel p:last-child{margin-bottom:0}
+.principle{padding:13px 0;border-bottom:1px solid var(--border)}.principle:first-child{padding-top:0}.principle:last-child{border:0;padding-bottom:0}
+.principle strong{font-size:14px;display:block}.principle p{font-size:12px;color:var(--muted);margin:4px 0 0}
+.roadmap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.road-card{padding:22px;background:var(--surface);border:1px solid var(--border);border-radius:16px;min-width:0}
+.road-card.featured{background:#edf8f0;border-color:#c6e5d0}
+.road-number{font-size:10px;letter-spacing:1.4px;font-weight:800;color:var(--green)}
+.road-card h3{font-size:18px;line-height:1.4;margin:15px 0 9px;letter-spacing:-.4px}
+.road-card p{font-size:13px;line-height:1.8;color:var(--muted)}
+.note{font-size:11px;color:#788179;margin-top:14px}
+.four-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.interest,.skill{padding:18px;border:1px solid var(--border);background:var(--surface);border-radius:14px;min-width:0}
+.symbol{font-size:22px;color:var(--green);margin-bottom:10px}.interest strong,.skill strong{font-size:13px;display:block;line-height:1.55}.interest small{font-size:11px;color:var(--muted);display:block;margin-top:4px}
+.vision-box{padding:clamp(24px,5vw,40px);border:1px solid #d6e6d9;border-radius:21px;background:radial-gradient(ellipse at 100% 0%,rgba(8,127,80,.08),transparent 48%),#fff}
+.vision-heading{font-size:clamp(32px,5vw,52px);line-height:1.15;letter-spacing:-2px;margin:14px 0 20px}
+.vision-text{max-width:780px;color:#525c54;font-size:14px;line-height:1.95;margin-top:13px}
+.vision-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.step{padding:17px;border:1px solid var(--border);border-radius:13px;background:#fbfcfa}.step span{display:block;font-size:10px;color:var(--green);font-weight:800;letter-spacing:1px;margin-bottom:8px}.step strong{display:block;font-size:13px;margin-bottom:6px}.step p{font-size:12px;line-height:1.8;color:var(--muted)}
+.skill p{font-size:12px;line-height:1.7;color:var(--muted);margin-top:5px}
+.contact-box{padding:clamp(25px,5vw,42px);border:1px solid var(--border);background:linear-gradient(135deg,#fff,#f0f7f1);border-radius:20px}
+.contact-box h2{font-size:clamp(32px,5vw,48px);line-height:1.15;letter-spacing:-2px;margin:12px 0}
+.contact-box p{max-width:580px;color:var(--muted);font-size:14px;margin-bottom:18px}
+.email{color:var(--green);font-size:14px;font-weight:700;overflow-wrap:anywhere}
+footer{padding:24px 0;color:#727c74;font-size:11px}.footer-row{display:flex;justify-content:space-between;gap:12px}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:30px}.hero-card{max-width:560px}.roadmap{grid-template-columns:1fr}.nav-links{gap:13px}}
+@media(max-width:650px){.container{width:calc(100% - 34px)}.navbar{min-height:64px}.menu-button{display:block}.nav-links{display:none;position:absolute;top:63px;left:17px;right:17px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:10px;box-shadow:0 15px 35px rgba(0,0,0,.08);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:10px;font-size:14px}.nav-contact{text-align:center;margin-top:4px}.hero{padding:58px 0 50px}h1{font-size:clamp(52px,13vw,72px);letter-spacing:-3.5px}.hero-description{font-size:14px}.hero-card{padding:22px}section.content-section{padding:54px 0}.section-title{letter-spacing:-1.2px}.two-col{grid-template-columns:1fr}.four-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vision-steps{grid-template-columns:1fr}.panel{padding:20px}.footer-row{flex-direction:column}}
+@media(max-width:350px){.container{width:calc(100% - 26px)}h1{font-size:46px}.buttons{flex-direction:column}.button{width:100%}.interest,.skill{padding:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body id="top">
+<header class="header">
+  <div class="container navbar">
+    <a class="logo" href="#top">DA<span>.</span></a>
+    <button class="menu-button" id="menu-button" aria-expanded="false" aria-controls="nav-links" type="button">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#education">Education</a><a href="#interests">Interests</a><a href="#vision">My Vision</a><a href="#skills">Skills</a><a class="nav-contact" href="#contact">Contact ↗</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Computer Science · AI · Entrepreneurship</div>
+      <h1>Daniyal <span class="name-second">Aslam.</span></h1>
+      <p class="hero-description">An aspiring Computer Science student passionate about Artificial Intelligence, software engineering, and building technology that creates meaningful opportunities for the future.</p>
+      <div class="buttons"><a class="button primary" href="#vision">Explore my vision ↘</a><a class="button secondary" href="#contact">Let's connect ↗</a></div>
+      <div class="tags"><span class="tag">Artificial Intelligence</span><span class="tag">Software Engineering</span><span class="tag">Entrepreneurship</span></div>
+    </div>
+    <aside class="hero-card">
+      <div class="card-label">PERSONAL PORTFOLIO</div><div class="monogram">DA.</div>
+      <h2>Learning today.<br><span class="serif">Building for tomorrow.</span></h2>
+      <p>Focused on education, technical growth, and a long-term vision to build an innovative software company in Pakistan.</p>
+      <div class="card-line"></div><div class="status"><span class="dot"></span>Aspiring Computer Science student</div>
+    </aside>
+  </div>
+</section>
+<section class="content-section" id="about">
+  <div class="container">
+    <div class="section-label">01 — ABOUT ME</div><h2 class="section-title">A curious mind.<br><span class="serif">A purpose-driven future.</span></h2>
+    <p class="section-description">My journey is about learning, building practical skills, and preparing to create technology that matters.</p>
+    <div class="two-col">
+      <div class="panel">
+        <p>I am Daniyal Aslam, a student interested in Computer Science, Artificial Intelligence, Machine Learning, and Software Development.</p>
+        <p>I want to understand how technology works, develop strong problem-solving skills, and learn how to turn ideas into useful software products.</p>
+        <p>My ambitions go beyond personal success. In the long term, I hope to use the knowledge and experience I gain to create opportunities and contribute to Pakistan's technology sector.</p>
+      </div>
+      <div class="panel">
+        <div class="principle"><strong>Learn with purpose</strong><p>Build strong academic and technical foundations.</p></div>
+        <div class="principle"><strong>Build with intention</strong><p>Turn knowledge into practical projects and solutions.</p></div>
+        <div class="principle"><strong>Give back through technology</strong><p>Use future skills to create value and opportunities at home.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content-section" id="education">
+  <div class="container">
+    <div class="section-label">02 — EDUCATION & ROADMAP</div><h2 class="section-title">From education to <span class="serif">enterprise.</span></h2>
+    <p class="section-description">A long-term plan to gain knowledge, develop expertise, and eventually build a technology business in Pakistan.</p>
+    <div class="roadmap">
+      <article class="road-card"><div class="road-number">01 · FOUNDATION</div><h3>Academic Journey</h3><p>Matriculation: 2022–2024<br>FSc: 2024–2026</p><p style="margin-top:10px">Academic milestones and preparation for further studies.</p></article>
+      <article class="road-card featured"><div class="road-number">02 · STUDY IN THE USA</div><h3>BS Computer Science</h3><p>My aspiration is to pursue a BS in Computer Science in the United States, with MIT as a dream institution.</p><p style="margin-top:10px">Build expertise in computing, AI, software engineering, and innovation.</p></article>
+      <article class="road-card"><div class="road-number">03 · BUILD IN PAKISTAN</div><h3>My Own Software House</h3><p>Return to Pakistan after gaining valuable education and experience, with the goal of establishing a software company that builds useful digital products.</p></article>
+    </div>
+    <p class="note">This roadmap represents future ambitions, not completed qualifications, confirmed admission, or an already-established company.</p>
+  </div>
+</section>
+<section class="content-section" id="interests">
+  <div class="container">
+    <div class="section-label">03 — AREAS OF INTEREST</div><h2 class="section-title">Technology with <span class="serif">possibility.</span></h2>
+    <p class="section-description">Fields I want to explore as I grow my knowledge and technical abilities.</p>
+    <div class="four-grid">
+      <article class="interest"><div class="symbol">✳</div><strong>Artificial Intelligence</strong><small>Intelligent systems</small></article>
+      <article class="interest"><div class="symbol">⌘</div><strong>Machine Learning</strong><small>Data-driven learning</small></article>
+      <article class="interest"><div class="symbol">◇</div><strong>Agentic AI</strong><small>AI agents and workflows</small></article>
+      <article class="interest"><div class="symbol">&lt;/&gt;</div><strong>Software Engineering</strong><small>Reliable digital products</small></article>
+    </div>
+  </div>
+</section>
+<section class="content-section" id="vision">
+  <div class="container">
+    <div class="section-label">04 — LONG-TERM VISION</div>
+    <div class="vision-box">
+      <h2 class="vision-heading">Study in the USA.<br><span class="serif">Build the future in Pakistan.</span></h2>
+      <p class="vision-text">My long-term vision is to pursue higher education in Computer Science in the United States, gain valuable technical knowledge and international exposure, and bring that experience back to Pakistan.</p>
+      <p class="vision-text">I aspire to establish my own software house or technology company in Pakistan — one that develops innovative software, explores AI-powered solutions, and creates opportunities for talented people.</p>
+      <p class="vision-text">For me, success is not only about studying abroad. It is also about using what I learn to contribute to my home country and help build technology with lasting value.</p>
+      <div class="vision-steps">
+        <div class="step"><span>STEP 01</span><strong>Study & Learn</strong><p>Pursue a Computer Science degree and strengthen my knowledge of software and AI.</p></div>
+        <div class="step"><span>STEP 02</span><strong>Gain Experience</strong><p>Develop practical skills, understand industry standards, and learn how technology businesses operate.</p></div>
+        <div class="step"><span>STEP 03</span><strong>Return & Build</strong><p>Aim to establish a software house in Pakistan, develop digital products, and create local opportunities.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content-section" id="skills">
+  <div class="container">
+    <div class="section-label">05 — GROWTH & LEARNING</div><h2 class="section-title">Building my <span class="serif">foundation.</span></h2>
+    <p class="section-description">Areas I intend to develop through structured learning, hands-on practice, and real projects.</p>
+    <div class="four-grid">
+      <article class="skill"><strong>Programming</strong><p>Developing problem-solving and coding foundations.</p></article>
+      <article class="skill"><strong>Web Development</strong><p>Learning to create accessible and useful web experiences.</p></article>
+      <article class="skill"><strong>Computer Science</strong><p>Building understanding of core computing concepts.</p></article>
+      <article class="skill"><strong>AI & Innovation</strong><p>Exploring emerging technologies and potential applications.</p></article>
+    </div>
+  </div>
+</section>
+<section class="content-section" id="achievements">
+  <div class="container">
+    <div class="section-label">06 — PROGRESS</div><h2 class="section-title">The journey is <span class="serif">in progress.</span></h2>
+    <div class="panel"><p>Every stage of learning is an opportunity to improve. As I complete projects, earn certifications, and achieve new academic milestones, I plan to document verified accomplishments here.</p><p>My focus is on building a strong foundation today so I can pursue bigger goals with knowledge, responsibility, and purpose.</p></div>
+  </div>
+</section>
+<section class="content-section" id="contact">
+  <div class="container">
+    <div class="contact-box"><div class="section-label">07 — GET IN TOUCH</div><h2>Let's create<br><span class="serif">something meaningful.</span></h2><p>Interested in technology, Computer Science, or exchanging ideas about the future? Feel free to connect with me.</p><a class="email" href="mailto:daniyalaslam453@gmail.com">daniyalaslam453@gmail.com</a><div class="buttons"><a class="button primary" href="mailto:daniyalaslam453@gmail.com">Send an email ↗</a></div></div>
+  </div>
+</section>
+</main>
+<footer><div class="container footer-row"><span>© <span id="year">2026</span> Daniyal Aslam. Built with purpose.</span><a href="#top">Back to top ↑</a></div></footer>
+<script>
+(function () {
+  const menuButton = document.getElementById("menu-button");
+  const navLinks = document.getElementById("nav-links");
+  if (menuButton && navLinks) {
+    menuButton.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "Close" : "Menu";
+    });
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "Menu";
+      });
+    });
+  }
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
+'''
+path = Path("/mnt/data/daniyal-portfolio-light.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created {path} ({path.stat().st_size:,} bytes)")
+nt-size: 14px;
       margin-bottom: 7px;
     }
 

@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DA. | Admin Login</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f7f9f8;
+      color: #17211d;
+    }
+
+    .panel {
+      width: 100%;
+      max-width: 420px;
+      padding: 32px;
+      background: white;
+      border: 1px solid #e5eae7;
+      border-radius: 18px;
+      box-shadow: 0 12px 40px #15291b0b;
+    }
+
+    .brand {
+      color: #176b50;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    h1 { margin-bottom: 8px; font-size: 25px; }
+
+    p { color: #68736d; line-height: 1.6; }
+
+    label {
+      display: block;
+      margin: 18px 0 7px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #dce3df;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: 2px solid #176b50;
+      border-color: transparent;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 22px;
+      padding: 14px;
+      border: 0;
+      border-radius: 9px;
+      background: #176b50;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:disabled { opacity: .6; cursor: wait; }
+
+    #message {
+      margin-top: 16px;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #176b50;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main class="panel">
+    <div class="brand">DA.</div>
+    <h1>Admin Login</h1>
+    <p>Sign in to access your portfolio management dashboard.</p>
+
+    <form id="loginForm">
+      <label for="email">Admin email</label>
+      <input id="email" type="email" autocomplete="username"
+             placeholder="you@example.com" required>
+
+      <label for="password">Password</label>
+      <input id="password" type="password"
+             autocomplete="current-password"
+             placeholder="Enter your password" required>
+
+      <button id="loginButton" type="submit">Sign In</button>
+      <div id="message" role="status"></div>
+    </form>
+
+    <a class="back" href="./">← Back to portfolio</a>
+  </main>
+
+  <script type="module">
+    /*
+      STEP 2:
+      Supabase project banane ke baad neeche dono values
+      apne Project URL aur Publishable Key se replace karna.
+      Secret/service-role key kabhi yahan mat dalna.
+    */
+    const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+    const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+
+    const form = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+    const button = document.getElementById("loginButton");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (
+        SUPABASE_URL.includes("YOUR_SUPABASE") ||
+        SUPABASE_KEY.includes("YOUR_SUPABASE")
+      ) {
+        message.textContent =
+          "Setup pending: pehle Supabase project aur keys configure karo.";
+        message.style.color = "#a15c00";
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "Signing in...";
+      message.textContent = "";
+
+      try {
+        const response = await fetch(
+          SUPABASE_URL + "/auth/v1/token?grant_type=password",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "apikey": SUPABASE_KEY
+            },
+            body: JSON.stringify({
+              email: document.getElementById("email").value.trim(),
+              password: document.getElementById("password").value
+            })
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.msg || result.message ||
+                          result.error_description || "Login failed.");
+        }
+
+        /*
+          Abhi login verification hai. Dashboard tab banayenge
+          jab database aur admin permissions configure ho jayengi.
+        */
+        message.textContent =
+          "Login successful. Next step: verify admin permissions and connect dashboard.";
+        message.style.color = "#176b50";
+      } catch (error) {
+        message.textContent = error.message || "Login failed.";
+        message.style.color = "#b42318";
+      } finally {
+        button.disabled = false;
+        button.textContent = "Sign In";
+      }
+    });
+  </script>
+</body>
+</html>
